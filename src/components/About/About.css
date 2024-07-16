@@ -66,3 +66,40 @@
   .ft-3 i {
     padding-right: 0.5rem;
   }
+
+
+
+  /* Styling for AboutPage */
+
+  .team-container {
+    display: flex;
+    overflow-x: auto;
+    padding: 1rem;
+    gap: 1rem;
+  }
+  
+  .team-card {
+    min-width: 200px;
+    max-width: 200px;
+    flex: 0 0 auto;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    overflow: hidden;
+  }
+  
+  .team-img {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+  }
+  
+  .team-body {
+    padding: 0.5rem;
+    max-height: 100px;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3; /* Number of lines to show */
+    line-clamp: 3; /* Fallback for line-clamp */
+    text-overflow: ellipsis;
+  }
