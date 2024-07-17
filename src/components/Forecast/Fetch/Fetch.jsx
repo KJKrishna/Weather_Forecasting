@@ -2,7 +2,7 @@ import React from 'react';
 
 const key = 'd0ee7c48bc16012bdc03275e7eb7e6e3';
 
-const fetchData = async(url) => {
+const fetchData = async (url) => {
     //console.log("Fetching...");
     let raw = await fetch(url);
     if (raw.status == 200) {
@@ -16,14 +16,14 @@ const fetchData = async(url) => {
     }
 }
 
-const Fetch = ({query, lat, lon, cnt = 5, city}) => { 
+const Fetch = ({ query, lat, lon, cnt = 5, city }) => {
 
     const geo = () => {
         let search = `http://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=1&appid=${key}`;
-        let info =  fetchData(search);
+        let info = fetchData(search);
     }
-    
-    
+
+
     const BASEURL = (type) => {
         return `https://api.openweathermap.org/data/2.5/${type}?lat=${lat}&lon=${lon}&appid=${key}`;
     }
@@ -34,8 +34,8 @@ const Fetch = ({query, lat, lon, cnt = 5, city}) => {
         let airPollution = BASEURL('air_pollution');
 
         let url;
-        
-        switch (query){
+
+        switch (query) {
             case 'currentWeather':
                 url = currentWeather;
                 break;
@@ -51,11 +51,11 @@ const Fetch = ({query, lat, lon, cnt = 5, city}) => {
         }
         let info = fetchData(url);
     }
-    
-    if (city){
+
+    if (city) {
         geo();
     }
-    else if (lat){
+    else if (lat) {
         pos();
     }
 };

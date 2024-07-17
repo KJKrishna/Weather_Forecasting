@@ -1,28 +1,13 @@
 import React from "react";
-
-function TodaysHighlights(props) {
-  console.log(props);
-  return (
-    <div className="TodaysHighlights">
-      <p className="element">{props.element}</p>
-      <h3 className='measurement'>{props.measurement}<sub>{props.unit}</sub></h3>
-      
-      <p>{props.children}</p>
-    </div>
-  );
-}
-
-export default TodaysHighlights;
-import React from 'react'
-import Fetch from './fetch.js'
-import WeatherCard from './Curr_Weather';
+import Fetch from './Fetch/Fetch.jsx'
+import WeatherCard from './CurrWeather/Curr_Weather.jsx';
+import TodaysHighlights from "./TodaysHighlights/TodaysHighlights.jsx";
+import Block from "./TodaysHighlights/Block.js";
 
 
 const Forecast = () => {
     return (
         <div>
-            Forecast components
-
             {/* Use any option line as per requirement
 
             Search with lat and lon
@@ -33,7 +18,7 @@ const Forecast = () => {
 
             */}
 
-            <Fetch city="Surat,Gujarat,India"/>
+            <Fetch city="Surat,Gujarat,India" />
             {/*
             Search with city or state ot country
 
@@ -42,14 +27,16 @@ const Forecast = () => {
             <Fetch city="Surat"/>
                 */}
 
-            <Fetch/>
-            <WeatherCard 
-                      PlaceName= "Palakkad"
-                      Weather= "Raining"
-                      Temperature= "42"
-                      Humidity= "20"
-                      WindSpeed= "5"
-                  />
+            <Fetch />
+            <WeatherCard
+                PlaceName="Palakkad"
+                Weather="Raining"
+                Temperature="42"
+                Humidity="20"
+                WindSpeed="5"
+            />
+            <TodaysHighlights />
+            <Block />
 
         </div>
     );

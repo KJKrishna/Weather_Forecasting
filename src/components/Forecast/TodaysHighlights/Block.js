@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './Block.css';
 
-function App() {
+function Block() {
     const [city, setCity] = useState('Delhi'); // Initialize with 'Delhi'
     const [weatherData, setWeatherData] = useState(null);
     const [error, setError] = useState('');
@@ -36,7 +36,7 @@ function App() {
             {/* Removed the heading <h1>Weather App</h1> */}
 
             {/* Removed input-container div and its contents (input and button) */}
-            
+
             {error && <p className="error">{error}</p>}
 
             {weatherData && (
@@ -69,4 +69,4 @@ function App() {
     );
 }
 
-export default App;
+export default Block;

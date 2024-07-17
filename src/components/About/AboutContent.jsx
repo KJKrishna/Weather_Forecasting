@@ -20,7 +20,7 @@ const teamMembers = [
   { id: 14, name: 'Team Member 14', img: require('./assets/team-member-14.jpg') },
 ];
 
-const About = () => {
+const AboutContent = () => {
   return (
     <div>
       <Container className="mt-5">
@@ -63,4 +63,4 @@ const About = () => {
   );
 }
 
-export default About;
+export default AboutContent;
