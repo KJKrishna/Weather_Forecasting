@@ -6,7 +6,6 @@ const About = () => {
   return (
     <div>
       <AboutContent/>
-      <Footer/>
     </div>
   )
 }

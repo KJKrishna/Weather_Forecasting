@@ -4,6 +4,7 @@ import WeatherCard from './CurrWeather/Curr_Weather.jsx';
 import TodaysHighlights from "./TodaysHighlights/TodaysHighlights.jsx";
 import Block from "./TodaysHighlights/Block.jsx";
 import HourlyWeather from "./Hourly Weather/Hourly.jsx";
+import DailyWeather from "./DailyWeather/DailyWeather.jsx";
 
 
 const Forecast = () => {
@@ -39,6 +40,7 @@ const Forecast = () => {
             <TodaysHighlights />
             <Block />
             <HourlyWeather/>
+            <DailyWeather/>
 
         </div>
     );
