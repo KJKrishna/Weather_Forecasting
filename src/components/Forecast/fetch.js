@@ -16,19 +16,21 @@ const fetchData = async(url) => {
     }
 }
 
-const Fetch = ({query, lat, lon, cnt = 5, city}) => { 
+const Fetch = async (city, query = undefined, lat = undefined, lon = undefined, cnt = 5) => { 
 
-    const geo = () => {
+    const geo = async () => {
         let search = `http://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=1&appid=${key}`;
-        let info =  fetchData(search);
+        let info = await fetchData(search);
+        return info;
     }
     
-    
-    const BASEURL = (type) => {
-        return `https://api.openweathermap.org/data/2.5/${type}?lat=${lat}&lon=${lon}&appid=${key}`;
-    }
 
-    const pos = () => {
+    const pos = async (query, lat, lon, cnt) => {
+
+        const BASEURL = (type) => {
+            return `https://api.openweathermap.org/data/2.5/${type}?lat=${lat}&lon=${lon}&appid=${key}`;
+        }
+        
         let currentWeather = BASEURL('weather');
         let forecast = BASEURL('forecast') + `&cnt=${cnt}`;
         let airPollution = BASEURL('air_pollution');
@@ -50,14 +52,23 @@ const Fetch = ({query, lat, lon, cnt = 5, city}) => {
                 return;
         }
         let info = fetchData(url);
+        return info;
+        
     }
     
     if (city){
-        geo();
+        let info = await geo();
+        let x = await info[0].lat;
+        let y = await info[0].lon;
+        //console.log(x,y);
+        let data = await pos(query, x, y, cnt);
+        return data;
     }
-    else if (lat){
-        pos();
+    else if (lat && lon){
+        let data = await pos(query, lat, lon, cnt);
+        return data;
     }
+    
 };
 
 export default Fetch;
