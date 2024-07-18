@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './Hourly.css';
 
-const HourlyWeather = ({ city }) => {
+const Hourly = ({ city }) => {
     const [hourlyData, setHourlyData] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
@@ -57,7 +57,6 @@ const HourlyWeather = ({ city }) => {
                             alt={item.weather[0].description} 
                         />
                         <p>Temperature: {item.main.temp} °C</p>
-                        <p>Humidity: {item.main.humidity}%</p>
                     </div>
                 ))}
             </div>
@@ -65,5 +64,5 @@ const HourlyWeather = ({ city }) => {
     );
 };
 
-export default HourlyWeather;
+export default Hourly;
 
