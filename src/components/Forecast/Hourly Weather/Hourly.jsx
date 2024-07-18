@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import '/Users/macbook/Downloads/Weather_Forecasting-main 2/src/components/Forecast/Hourly Weather/Hourly.css';
+import './Hourly.css';
 
 const HourlyWeather = ({ city }) => {
     const [hourlyData, setHourlyData] = useState([]);

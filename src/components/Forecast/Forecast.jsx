@@ -2,7 +2,8 @@ import React from "react";
 import Fetch from './Fetch/Fetch.jsx'
 import WeatherCard from './CurrWeather/Curr_Weather.jsx';
 import TodaysHighlights from "./TodaysHighlights/TodaysHighlights.jsx";
-import Block from "./TodaysHighlights/Block.js";
+import Block from "./TodaysHighlights/Block.jsx";
+import HourlyWeather from "./Hourly Weather/Hourly.jsx";
 
 
 const Forecast = () => {
@@ -37,6 +38,7 @@ const Forecast = () => {
             />
             <TodaysHighlights />
             <Block />
+            <HourlyWeather/>
 
         </div>
     );
