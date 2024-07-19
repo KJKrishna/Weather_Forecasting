@@ -4,10 +4,11 @@ import Footer from './Footer'
 
 const About = () => {
   return (
-    <div>
+    <div className="About">
       <AboutContent/>
     </div>
   )
 }
 
 export default About
+
