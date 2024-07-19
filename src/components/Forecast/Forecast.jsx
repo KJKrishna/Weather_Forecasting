@@ -22,13 +22,6 @@ const Forecast = () => {
                       Humidity= "20"
                       WindSpeed= "5"
                   />
-            <WeatherCard
-                PlaceName="Palakkad"
-                Weather="Raining"
-                Temperature="42"
-                Humidity="20"
-                WindSpeed="5"
-            />
             <TodaysHighlights />
             <Block />
             <HourlyWeather/>
