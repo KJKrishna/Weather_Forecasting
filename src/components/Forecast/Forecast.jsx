@@ -8,8 +8,27 @@ import DailyWeather from "./DailyWeather/DailyWeather.jsx";
 
 
 const Forecast = () => {
+
+    /* Use any one way as per given data */
+    const data = Fetch("Palakkad","airPollution");
+    //const data = Fetch(null, "currentWeather",10.7681928,76.6521319);
+    
+
+    
+    
+
     return (
         <div>
+            Forecast components
+            
+ 
+            <WeatherCard 
+                      PlaceName= "Palakkad"
+                      Weather= "Raining"
+                      Temperature= "42"
+                      Humidity= "20"
+                      WindSpeed= "5"
+                  />
             {/* Use any option line as per requirement
 
             Search with lat and lon
