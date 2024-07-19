@@ -1,4 +1,4 @@
-  html, body {
+html, body {
   height: 100%;
   margin: 0;
 }
@@ -15,6 +15,11 @@
   margin-top: auto; /* Push the footer to the bottom */
 }
 
+.row {
+  display: flex; /* Ensure row is a flex container */
+  flex-wrap: wrap; /* Allow wrapping */
+}
+
 .ft-1 h3 {
   font-weight: 700;
   font-family: sans-serif;
@@ -28,7 +33,7 @@
 }
 
 .ft-1 p {
-  padding: 0rem 5rem 0.8rem 0;
+  padding: 0.5rem 0; /* Adjust padding for better spacing */
   font-weight: 700;
 }
 
@@ -67,11 +72,17 @@
   font-size: 1.06rem;
 }
 
+.ft-3 {
+  display: flex; /* Align contents in a row */
+  flex-direction: column; /* Stack items vertically */
+}
+
 .ft-3 p {
   color: #fff;
   font-weight: 500;
   padding: 0.1rem 0;
   font-size: 1.06rem;
+  margin: 0; /* Remove margin to ensure alignment */
 }
 
 .ft-3 i {
@@ -79,7 +90,6 @@
 }
 
 /* Styling for AboutPage */
-
 .team-container {
   display: flex;
   overflow-x: auto;
