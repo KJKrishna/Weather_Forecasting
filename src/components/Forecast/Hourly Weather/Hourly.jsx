@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './Hourly.css';
+import Fetch from '../Fetch/Fetch.jsx';
 
 const Hourly = ({ city }) => {
     const [hourlyData, setHourlyData] = useState([]);
@@ -17,15 +18,8 @@ const Hourly = ({ city }) => {
                 return;
             }
 
-            const url = `https://api.openweathermap.org/data/2.5/forecast?q=${encodeURIComponent(city)}&appid=${apiKey}&units=metric`;
-            console.log(`Fetching from URL: ${url}`); // Log the URL for debugging
-
             try {
-                const response = await fetch(url);
-                if (!response.ok) {
-                    throw new Error(`HTTP error! status: ${response.status}`);
-                }
-                const data = await response.json();
+                const data = await Fetch(city,'forecast');
                 setHourlyData(data.list.slice(0, 5)); // Get only the first 5 forecasts
                 setLoading(false);
             } catch (error) {
