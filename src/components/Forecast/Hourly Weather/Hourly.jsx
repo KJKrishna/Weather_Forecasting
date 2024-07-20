@@ -8,7 +8,8 @@ const Hourly = ({ city }) => {
     const [error, setError] = useState(null);
     
     const apiKey = 'f5f161496d03bfa46738021583236a2c'; // Replace with your OpenWeather API key
-    city = 'Palakkad';
+    // city = 'Palakkad';
+    // console.log(city)
 
     useEffect(() => {
         const fetchHourlyWeather = async () => {
@@ -20,6 +21,7 @@ const Hourly = ({ city }) => {
 
             try {
                 const data = await Fetch(city,'forecast');
+                // console.log(data)
                 setHourlyData(data.list.slice(0, 5)); // Get only the first 5 forecasts
                 setLoading(false);
             } catch (error) {

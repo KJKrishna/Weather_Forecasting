@@ -7,7 +7,7 @@ const fetchData = async (url) => {
     let raw = await fetch(url);
     if (raw.status == 200) {
         let data = await raw.json();
-        console.log(data);
+        // console.log(data);
         return data;
     }
 

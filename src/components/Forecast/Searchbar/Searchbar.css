@@ -8,9 +8,6 @@
     min-width: 200px;  
   }
 
-
-
-
 .input-wrapper {
     background-color: white;
     width: 100%;
@@ -51,6 +48,7 @@ input:focus{
 /* 2nd div */
 
 .result-list {
+    color: black;
     width: 60%;
     background-color: white;
     display: flex;
@@ -60,6 +58,10 @@ input:focus{
     margin-top: 1rem;
     max-height: 300px;
     overflow-y: scroll;
+}
+
+.result-list::-webkit-scrollbar {
+  display: none;
 }
 
 

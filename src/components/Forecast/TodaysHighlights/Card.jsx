@@ -3,7 +3,7 @@ import React from "react";
 import './Card.css'
 
 function Card(props) {
-  console.log(props);
+  // console.log(props);
   return (
     <div className="highlightsCard">
       <p className="element">{props.element}</p>
