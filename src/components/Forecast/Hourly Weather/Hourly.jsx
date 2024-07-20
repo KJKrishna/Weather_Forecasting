@@ -50,7 +50,7 @@ const Hourly = ({ city }) => {
                             src={`http://openweathermap.org/img/wn/${item.weather[0].icon}@2x.png`} 
                             alt={item.weather[0].description} 
                         />
-                        <p>Temperature: {item.main.temp} °C</p>
+                        <p>Temperature: {item.main.temp.toFixed(2)} °C</p>
                     </div>
                 ))}
             </div>

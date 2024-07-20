@@ -14,11 +14,11 @@ const DailyWeather = () => {
     sevenDays: [
       {
         temperature: {
-          day: d,
-          night: n
+          day: 34,
+          night: 26
         },
-        weather: e,
-        rain: r,
+        weather: '☁️',
+        rain: 20,
       },
       {
         temperature: {

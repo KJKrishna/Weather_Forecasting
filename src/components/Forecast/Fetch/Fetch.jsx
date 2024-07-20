@@ -28,7 +28,7 @@ const Fetch = async (city, query = undefined, lat = undefined, lon = undefined, 
     const pos = async (query, lat, lon, cnt) => {
 
         const BASEURL = (type) => {
-            return `https://api.openweathermap.org/data/2.5/${type}?lat=${lat}&lon=${lon}&appid=${key}`;
+            return `https://api.openweathermap.org/data/2.5/${type}?lat=${lat}&lon=${lon}&appid=${key}&units=metric`;
         }
         
         let currentWeather = BASEURL('weather');
