@@ -6,6 +6,7 @@ import Block from "./TodaysHighlights/Block.jsx";
 import HourlyWeather from "./Hourly Weather/Hourly.jsx";
 import DailyWeather from "./DailyWeather/DailyWeather.jsx";
 import Searchbar from "./Searchbar/Searchbar.js";
+import NavBar from "../Home/NavBar.jsx";
 
 
 const Forecast = () => {
@@ -18,7 +19,8 @@ const Forecast = () => {
     //const data = Fetch(null, "currentWeather",10.7681928,76.6521319);
 
     return (
-        <div>
+        <div style={{backgroundColor:'rgb(53, 52, 52)'}}>
+            <NavBar/>
             <Searchbar setCity={(city)=>setCity(city)}/>
             <WeatherCard 
                       PlaceName= {city.slice(0,city.length - 3)}

@@ -3,13 +3,6 @@ import React from 'react'
 import './DailyWeather.css'
 
 const DailyWeather = () => {
-  let d;
-  let n;
-  let e;
-  let r;
-
-  let city = ''
-
   const dummyDailyWeatherData = {
     sevenDays: [
       {
