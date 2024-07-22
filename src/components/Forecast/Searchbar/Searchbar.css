@@ -49,15 +49,17 @@ input:focus{
 
 .result-list {
     color: black;
-    width: 60%;
+    width: 40%;
     background-color: white;
     display: flex;
     flex-direction: column;
     box-shadow: 0px 0px 8px #ddd;
     border-radius: 10px;
-    margin-top: 1rem;
+    margin-top: 3rem;
     max-height: 300px;
     overflow-y: scroll;
+    position: absolute;
+    z-index: 2;
 }
 
 .result-list::-webkit-scrollbar {
