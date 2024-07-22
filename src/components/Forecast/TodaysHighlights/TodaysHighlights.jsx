@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import Card from '/Card';
+import Card from './Card';
 import Fetch from '../Fetch/Fetch.jsx';
 
-function TodaysHighlights() {
+function TodaysHighlights({city}) {
   const [data, setData] = useState({
     windSpeed: null,
     uvIndex: null,
@@ -15,9 +15,8 @@ function TodaysHighlights() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const city = 'your_city_name'; // Replace with your city name
         const currentWeather = await Fetch(city, 'currentWeather');
-
+        console.log(currentWeather)
         if (currentWeather) {
           setData({
             windSpeed: currentWeather.wind.speed,
@@ -33,9 +32,8 @@ function TodaysHighlights() {
         setLoading(false);
       }
     };
-
     fetchData();
-  }, []);
+  }, [city]);
 
   if (loading) {
     return <p>Loading...</p>;
@@ -47,9 +45,9 @@ function TodaysHighlights() {
 
   return (
     <div className='TodaysHighlights'>
-      <h3 >Today's Highlights</h3>
+      <h3 style={{textAlign: 'center', color: 'rgb(144 193 255)', marginBottom: '3rem'}}>Today's Highlights</h3>
       <div className="cards">
-        <Card element='Wind speed' unit='m/s' measurement={data.windSpeed}></Card>
+        <Card element='Wind speed' unit='m/s' measurement={data.windSpeed + ' m/s'}></Card>
         <Card element='UV Index' unit='UV' measurement={data.uvIndex}></Card>
         <Card element='Sunrise' unit='am' measurement={data.sunrise}></Card>
         <Card element='Sunset' unit='pm' measurement={data.sunset}></Card>

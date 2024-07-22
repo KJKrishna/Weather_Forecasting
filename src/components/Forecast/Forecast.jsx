@@ -48,8 +48,8 @@ const Forecast = () => {
                 WindSpeed={currentWeather.wind.speed}
                 Icon={currentWeather.weather[0].icon}
                 />
-            <TodaysHighlights />
-            <Block />
+            <TodaysHighlights city={city} />
+            <Block city={city} />
             <HourlyWeather city={city}/>
             <DailyWeather/>
 

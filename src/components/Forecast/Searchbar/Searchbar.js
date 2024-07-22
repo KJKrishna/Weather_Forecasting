@@ -47,7 +47,9 @@ const Searchbar = (props) => {
 
           <input placeholder='Search city...'
             value={input}
-            onChange={(e) => handleChange(e.target.value)} />
+            onChange={(e) => handleChange(e.target.value)} 
+            style={{border:'none'}}
+          />
           <FaSearch id='search-icon' />
           <MdGpsFixed id='location-symbol' onClick={handleLocationClick} />
         </div>

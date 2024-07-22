@@ -109,8 +109,8 @@ export default function Earth(props) {
 
   return (
     <>
-      <ambientLight intensity={2} />
-      <pointLight color="#f6f3ea" position={[2, 0, 5]} intensity={1.2} />
+      <ambientLight intensity={1.5} />
+      <pointLight color="#f6f3ea" position={[2, 0, 5]} intensity={20.0} />
       <Stars
         radius={300}
         depth={60}

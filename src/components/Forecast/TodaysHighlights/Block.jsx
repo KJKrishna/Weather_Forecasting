@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import './Block.css';
+import Fetch from '../Fetch/Fetch';
 
-function Block() {
-    const [city, setCity] = useState('Delhi'); // Initialize with 'Delhi'
+function Block({city}) {
     const [weatherData, setWeatherData] = useState(null);
     const [error, setError] = useState('');
 
@@ -10,14 +10,8 @@ function Block() {
 
     // Function to fetch weather data
     const getWeatherData = async (city) => {
-        const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
-
         try {
-            const response = await fetch(apiUrl);
-            if (!response.ok) {
-                throw new Error(`HTTP error! status: ${response.status}`);
-            }
-            const data = await response.json();
+            const data = await Fetch(city, 'currentWeather');
             setWeatherData(data);
             setError('');
         } catch (error) {
@@ -55,9 +49,7 @@ function Block() {
                     </div>
                     <div className="weather-box">
                         <p className="weather-label">Temperature</p>
-                        <p className="weather-value">{weatherData.main.temp}°C</p>
-                        <p className="weather-minmax">Min: {weatherData.main.temp_min}°C</p>
-                        <p className="weather-minmax">Max: {weatherData.main.temp_max}°C</p>
+                        <p className="weather-value">{Math.round(weatherData.main.temp_min)}°C / {Math.round(weatherData.main.temp_max)}°C</p>
                     </div>
                     <div className="weather-box">
                         <p className="weather-label">Precipitation</p>
