@@ -120,7 +120,7 @@ export default function Earth(props) {
         fade={true}
       />
       <mesh ref={cloudsRef} position={[0, 0, 3]}>
-        <sphereGeometry args={[1.005, 32, 32]} />
+        <sphereGeometry args={[1.005, 28, 28]} />
         <meshPhongMaterial
           map={cloudsMap}
           opacity={0.4}
@@ -130,7 +130,7 @@ export default function Earth(props) {
         />
       </mesh>
       <mesh ref={earthRef} position={[0, 0, 3]}>
-        <sphereGeometry args={[1, 32, 32]} />
+        <sphereGeometry args={[1, 28, 28]} />
         <meshPhongMaterial specularMap={specularMap} />
         <meshStandardMaterial
           map={colorMap}
