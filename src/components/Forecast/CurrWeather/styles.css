@@ -1,5 +1,5 @@
 .WeatherCard {
-    background: rgba(33, 5, 5, 0.855);
+    background: rgba(57, 59, 143, 0.329);
     padding: 20px;
     border-radius: 10px; 
     color: white;
@@ -10,5 +10,5 @@
 .WeatherCard:hover {
     transform: scale(1.05);
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-    background: rgba(35, 3, 3, 0.652);
+    background: rgba(12, 15, 49, 0.778);
 }
