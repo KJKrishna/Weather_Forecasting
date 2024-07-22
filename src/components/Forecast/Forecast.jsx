@@ -15,7 +15,7 @@ const Forecast = () => {
     // console.log(city)
     const [currentWeather, setCurrentWeather] = useState({
         name: "Loading...",
-        weather: [{ description: "Loading..." }],
+        weather: [{ description: "Loading...", icon: '01d' }],
         main: { temp: 0, humidity: 0 },
         wind: { speed: 0 },
     });
