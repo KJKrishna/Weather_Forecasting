@@ -1,0 +1,30 @@
+.box{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding-bottom: 3rem;
+}
+
+.weather{
+    border: 2px solid #4cafa2;
+    padding: 10px;
+    margin: 5px;
+    width: 150px;
+    border-radius: 10px;
+    background-color: #b0e1ffc2;
+    color: black;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: bold;
+    font-size: larger;
+    
+}
+
+p{
+    text-align: center;
+}
+#days{
+    color: red;
+}
