@@ -138,14 +138,14 @@ export default function Earth(props) {
           metalness={0.4}
           roughness={0.7}
         />
-        {/* <OrbitControls
-          enableZoom={true}
+        <OrbitControls
+          enableZoom={false}
           enablePan={true}
           enableRotate={true}
           zoomSpeed={0.6}
           panSpeed={0.5}
-          rotateSpeed={0.4}
-        /> */}
+          rotateSpeed={0.1}
+        />
       </mesh>
     </>
   );
