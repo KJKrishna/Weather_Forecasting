@@ -7,6 +7,7 @@ import HourlyWeather from "./Hourly Weather/Hourly.jsx";
 import DailyWeather from "./DailyWeather/DailyWeather.jsx";
 import Searchbar from "./Searchbar/Searchbar.js";
 import NavBar from "../Home/NavBar.jsx";
+import './Forecast.css'
 
 
 const Forecast = () => {
@@ -20,14 +21,14 @@ const Forecast = () => {
         wind: { speed: 0 },
     });
 
+    const fetchWeatherData = async () => {
+        const weatherData = await Fetch(city, "currentWeather");
+        if (weatherData) {
+            setCurrentWeather(weatherData);
+        }
+    };
+    
     useEffect(() => {
-        const fetchWeatherData = async () => {
-            const weatherData = await Fetch(city, "currentWeather");
-            if (weatherData) {
-                setCurrentWeather(weatherData);
-            }
-        };
-
         fetchWeatherData();
         console.log(currentWeather);
     }, [city]);
@@ -37,7 +38,7 @@ const Forecast = () => {
     //const data = Fetch(null, "currentWeather",10.7681928,76.6521319);
 
     return (
-        <div style={{backgroundColor:'rgb(53, 52, 52)'}}>
+        <div className="main-forecast-container">
             <NavBar/>
             <Searchbar setCity={(city)=>setCity(city)}/>
             <WeatherCard 

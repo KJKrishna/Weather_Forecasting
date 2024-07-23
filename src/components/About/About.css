@@ -3,7 +3,8 @@
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  background-color: rgb(53, 52, 52);
+  /* background-color: rgb(53, 52, 52); */
+  background: linear-gradient(to top, #6e634d,  #6d2979b0, #4c4caefa, #6c4848);
 }
 
 .Footer {
