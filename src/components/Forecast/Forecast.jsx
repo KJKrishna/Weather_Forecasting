@@ -14,15 +14,13 @@ const Forecast = () => {
 
     const [city, setCity] = useState("Kolkata,IN")
     // console.log(city)
-    const [currentWeather, setCurrentWeather] = useState({
-        name: "Loading...",
-        weather: [{ description: "Loading...", icon: '01d' }],
-        main: { temp: 0, humidity: 0 },
-        wind: { speed: 0 },
-    });
+    const [currentWeather, setCurrentWeather] = useState(null);
+    const [loading, setLoading] = useState(true)
 
     const fetchWeatherData = async () => {
+        setLoading(true)
         const weatherData = await Fetch(city, "currentWeather");
+        setLoading(false)
         if (weatherData) {
             setCurrentWeather(weatherData);
         }
@@ -42,16 +40,22 @@ const Forecast = () => {
             <NavBar/>
             <Searchbar setCity={(city)=>setCity(city)}/>
             <WeatherCard 
-                PlaceName={city.slice(0,city.length - 3)}
-                Weather={currentWeather.weather[0].description}
-                Temperature={Math.round(currentWeather.main.temp)} // Already in Celsius
-                Humidity={currentWeather.main.humidity}
-                WindSpeed={currentWeather.wind.speed}
-                Icon={currentWeather.weather[0].icon}
+                city={city}
+                currentWeather={currentWeather}
+                loading={loading}
                 />
-            <TodaysHighlights city={city} />
-            <Block city={city} />
-            <HourlyWeather city={city}/>
+            <TodaysHighlights
+                city={city}
+                currentWeather={currentWeather}
+                loading={loading}
+            />
+            <Block
+                currentWeather={currentWeather}
+                loading={loading}
+             />
+            <HourlyWeather 
+                city={city}
+            />
             <DailyWeather/>
 
         </div>

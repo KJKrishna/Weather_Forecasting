@@ -5,7 +5,7 @@ import { Canvas } from '@react-three/fiber'
 
 const Home = () => {
   return (
-    <div style={{height:'75%',overflow:'hidden'}}>
+    <div style={{height:'80%',overflow:'hidden'}}>
     <NavBar/>
     <Canvas>
       <Earth />
