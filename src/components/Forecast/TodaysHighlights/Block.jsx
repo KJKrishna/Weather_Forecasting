@@ -5,33 +5,36 @@ import Fetch from '../Fetch/Fetch';
 function Block({city}) {
     const [weatherData, setWeatherData] = useState(null);
     const [error, setError] = useState('');
+    const [Loading, setLoading] = useState(true);
 
-    const apiKey = 'f5f161496d03bfa46738021583236a2c'; // Replace with your OpenWeatherMap API key
+    const apiKey = 'f5f161496d03bfa46738021583236a2c';
 
     // Function to fetch weather data
     const getWeatherData = async (city) => {
+        setWeatherData(null)
+        setLoading(true)
         try {
             const data = await Fetch(city, 'currentWeather');
             setWeatherData(data);
             setError('');
+            setLoading(false)
         } catch (error) {
             console.error('Error fetching weather data:', error);
             setError('Error fetching weather data. Please try again.');
+            setLoading(false)
         }
     };
 
-    // useEffect to fetch weather data when component mounts
     useEffect(() => {
-        getWeatherData(city); // Fetch weather data for 'Delhi' on component mount
-    }, [city]); // Depend on city state to re-fetch weather data when city changes
+        getWeatherData(city);
+    }, [city]);
 
     return (
-        <div className="App">
-            {/* Removed the heading <h1>Weather App</h1> */}
-
-            {/* Removed input-container div and its contents (input and button) */}
+        <div className="down-row">
 
             {error && <p className="error">{error}</p>}
+
+            {Loading && <p className="Loading" style={{color:'green',fontSize:'150%',fontWeight:'600'}}>Loading...</p>}
 
             {weatherData && (
                 <div id="weatherData">
