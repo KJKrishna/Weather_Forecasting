@@ -1,102 +1,74 @@
-
-import React from 'react'
-import './DailyWeather.css'
+import React, { useState, useEffect } from 'react';
+import './DailyWeather.css';
+import Fetch from '../Fetch/Fetch.jsx';
 
 const DailyWeather = () => {
-  const dummyDailyWeatherData = {
-    sevenDays: [
-      {
-        temperature: {
-          day: 34,
-          night: 26
-        },
-        weather: '☁️',
-        rain: 20,
-      },
-      {
-        temperature: {
-          day: 32,
-          night: 28
-        },
-        weather: '☁️',
-        rain: 60,
-      },
-      {
-        temperature: {
-          day: 35,
-          night: 29
-        },
-        weather: '🌤️',
-        rain: 40,
-      },
-      {
-        temperature: {
-          day: 31,
-          night: 26
-        },
-        weather: '🌦️',
-        rain: 50,
-      },
-      {
-        temperature: {
-          day: 30,
-          night: 25
-        },
-        weather: '⛈️',
-        rain: 70,
-      },
-      {
-        temperature: {
-          day: 37,
-          night: 30
-        },
-        weather: '☀️',
-        rain: 30,
-      },
-      {
-        temperature: {
-          day: 32,
-          night: 26
-        },
-        weather: '🌧️',
-        rain: 50,
-      },
-    ]
-  }
+  const [weatherData, setWeatherData] = useState([])
+
+
+  const apiKey = `8d50132a8b2d5d465a7e024343d56756`;
+  const city = 'Palakkad';
+
+  useEffect(()=>{
+    const fetchDailyWeather = async ()=>{
+      const data = await Fetch(city,'forecast')
+      setWeatherData(data.list)
+    }
+
+    fetchDailyWeather()
+  }, [city, apiKey]);
 
   const date = new Date();
   const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
   const currentDay = days[date.getDay()];
   const dayNumber = days.indexOf(currentDay);
   const displayDate = new Date();
+  const iconToEmoji = {
+    '01d': '☀️', 
+    '01n': '🌙', 
+    '02d': '🌤️', 
+    '02n': '🌑', 
+    '03d': '☁️', 
+    '03n': '☁️', 
+    '04d': '☁️', 
+    '04n': '☁️', 
+    '09d': '🌧️', 
+    '09n': '🌧️', 
+    '10d': '🌦️', 
+    '10n': '🌦️', 
+    '11d': '⛈️', 
+    '11n': '⛈️', 
+    '13d': '❄️', 
+    '13n': '❄️', 
+    '50d': '🌫️', 
+    '50n': '🌫️', 
+  };
+  const indicesToShow = [0, 8, 16, 24, 32]
 
   return (
     <div>
-      <h3 style={{ textAlign: 'center', margin: '2rem', color:'rgb(154 183 237)' }}>Daily weather updates</h3>
+      <h3 style={{ textAlign: 'center', margin: '2rem', color: '#4cafa2' }}>Daily weather updates</h3>
       <div className='box'>
-        {dummyDailyWeatherData.sevenDays.map((day, index) => {
-
-          const dayOfWeek = days[(dayNumber + index) % 7];
-          displayDate.setDate(date.getDate() + index);
-
-          const formattedDate = displayDate.toDateString().replace(displayDate.getFullYear(), '')
+      {weatherData.length > 0 && indicesToShow.map((index) => {
+          const dailyData = weatherData[index];
+          const dayOfWeek = days[(dayNumber + (index / 8)) % 7];
+          displayDate.setDate(date.getDate() + (index / 8));
+          const formattedDate = displayDate.toDateString().replace(displayDate.getFullYear(), '');
 
           return (
             <div key={index} className='weather'>
-              <p> {formattedDate}</p>
+              <p style={{ color: 'tomato' }}> {formattedDate}</p>
               <hr></hr>
-              <p id='days'> {dayOfWeek}</p>
-              <p>{day.temperature.day}°C / {day.temperature.night}°C</p>
-              <p>Weather: {day.weather}</p>
-              <p>Rain💧: {day.rain}%</p>
+              <p id='days' style={{ color: '#197468' }}> {dayOfWeek}</p>
+              <p>{dailyData.main.feels_like.toFixed(0)}°C / {dailyData.main.temp.toFixed(0)}°C</p>
+              <p>Weather: {iconToEmoji[dailyData.weather[0].icon]}</p>
+              <p>Humidity🍃: {dailyData.main.humidity}%</p>
             </div>
           );
         })}
       </div>
     </div>
   );
-}
+};
 
-export default DailyWeather
-
-
+export default DailyWeather;
