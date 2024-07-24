@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react'
 // `http://api.openweathermap.org/geo/1.0/reverse?lat={lat}&lon={lon}&limit={limit}&appid={API key}`
 
 const CurrentLocation = () => {
-    const API_key = 'e60a9ebecf05d0e91736a8dd4539a026'
+    const API_key = process.env.REACT_APP_key4
     const [currentlocation, setCurrentLocation] = useState("")
     useEffect(() => {
         navigator.geolocation.getCurrentPosition((pos) => {

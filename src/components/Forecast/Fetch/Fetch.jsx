@@ -1,4 +1,4 @@
-const key = 'd0ee7c48bc16012bdc03275e7eb7e6e3';
+const key = process.env.REACT_APP_key1;
 
 const fetchData = async (url) => {
     //console.log("Fetching...");

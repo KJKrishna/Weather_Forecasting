@@ -5,8 +5,6 @@ const Hourly = ({ data }) => {
     const [hourlyData, setHourlyData] = useState(null);
     const [loading, setLoading] = useState(true);
 
-    // const apiKey = 'f5f161496d03bfa46738021583236a2c';
-
     useEffect(() => {
         if(data){
             setHourlyData(data.list.slice(0, 5));

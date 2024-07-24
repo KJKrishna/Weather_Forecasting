@@ -6,8 +6,6 @@ const DailyWeather = ({ data }) => {
   const [weatherData, setWeatherData] = useState(null)
   const [loading, setLoading] = useState(true);
 
-  // const apiKey = `8d50132a8b2d5d465a7e024343d56756`;
-
   useEffect(() => {
     if (data) {
       setWeatherData(data.list)
@@ -20,7 +18,6 @@ const DailyWeather = ({ data }) => {
   }, [weatherData])
 
   const date = new Date();
-  const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
   const displayDate = new Date();
   const indicesToShow = [0, 8, 16, 24, 32]
 

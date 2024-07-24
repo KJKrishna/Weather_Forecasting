@@ -8,7 +8,7 @@ const Searchbar = (props) => {
   const [results, setResults] = useState([])
   const [input, setInput] = useState("")
   const currentlocation = CurrentLocation();
-  const API_key = 'e60a9ebecf05d0e91736a8dd4539a026'
+  const API_key = process.env.REACT_APP_key4;
   const fetchData = (value) => {
     if (value.length >= 3) {
       fetch(`http://api.openweathermap.org/geo/1.0/direct?q=${value}&limit=5&appid=${API_key}`)
