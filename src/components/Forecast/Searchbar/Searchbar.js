@@ -34,7 +34,7 @@ const Searchbar = (props) => {
   }
 
   useEffect(() => {
-    if (input == '') {
+    if (input === '') {
       setResults([])
     }
   }, [input])

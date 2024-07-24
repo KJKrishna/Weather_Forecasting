@@ -1,11 +1,9 @@
-import React from 'react';
-
 const key = 'd0ee7c48bc16012bdc03275e7eb7e6e3';
 
 const fetchData = async (url) => {
     //console.log("Fetching...");
     let raw = await fetch(url);
-    if (raw.status == 200) {
+    if (raw.status === 200) {
         let data = await raw.json();
         // console.log(data);
         return data;
@@ -16,7 +14,7 @@ const fetchData = async (url) => {
     }
 }
 
-const Fetch = async (city, query = undefined, lat = undefined, lon = undefined, cnt = 40) => { 
+const Fetch = async (city, query = undefined, cnt = 5, lat = undefined, lon = undefined) => { 
 
     const geo = async () => {
         let search = `http://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=1&appid=${key}`;

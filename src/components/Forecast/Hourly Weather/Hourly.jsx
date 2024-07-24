@@ -1,46 +1,24 @@
 import React, { useState, useEffect } from 'react';
 import './Hourly.css';
-import Fetch from '../Fetch/Fetch.jsx';
 
-const Hourly = ({ city }) => {
+const Hourly = ({ data }) => {
     const [hourlyData, setHourlyData] = useState(null);
     const [loading, setLoading] = useState(true);
-    const [error, setError] = useState(null);
 
-    const apiKey = 'f5f161496d03bfa46738021583236a2c'; // Replace with your OpenWeather API key
-    // city = 'Palakkad';
-    // console.log(city)
-
-    const fetchHourlyWeather = async () => {
-        setHourlyData(null)
-        setLoading(true)
-        if (!city) {
-            setError("City name is required.");
-            setLoading(false);
-            return;
-        }
-        try {
-            const data = await Fetch(city, 'forecast');
-            // console.log(data)
-            setHourlyData(data.list.slice(0, 5)); // Get only the first 5 forecasts
-            setLoading(false);
-        } catch (error) {
-            setError(error.message);
-            setLoading(false);
-        }
-    };
+    // const apiKey = 'f5f161496d03bfa46738021583236a2c';
 
     useEffect(() => {
-        fetchHourlyWeather();
-    }, [city, apiKey]);
+        if(data){
+            setHourlyData(data.list.slice(0, 5));
+            setLoading(false)
+        }
+    }, [data]);
 
     return (
         <div>
             <h2>Hourly Weather Forecast</h2>
 
-            {error && <p className="error">{error}</p>}
-
-            {loading && <p className="Loading" style={{ color: 'green', fontSize: '150%', fontWeight: '600' }}>Loading...</p>}
+            {loading && <p className="Loading" style={{ color: 'blue', fontSize: '150%', fontWeight: '600' }}>Loading...</p>}
 
             {
                 hourlyData &&

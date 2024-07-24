@@ -1,7 +1,7 @@
 import React from 'react'
-import NavBar from './NavBar'
 import Earth from './background'
 import { Canvas } from '@react-three/fiber'
+import NavBar from '../NavBar/NavBar'
 
 const Home = () => {
   return (

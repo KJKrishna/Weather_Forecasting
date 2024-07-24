@@ -2,11 +2,10 @@ import React, { useState, useEffect } from "react";
 import Fetch from './Fetch/Fetch.jsx'
 import WeatherCard from './CurrWeather/Curr_Weather.jsx';
 import TodaysHighlights from "./TodaysHighlights/TodaysHighlights.jsx";
-import Block from "./TodaysHighlights/Block.jsx";
 import HourlyWeather from "./Hourly Weather/Hourly.jsx";
 import DailyWeather from "./DailyWeather/DailyWeather.jsx";
 import Searchbar from "./Searchbar/Searchbar.js";
-import NavBar from "../Home/NavBar.jsx";
+import NavBar from "../NavBar/NavBar.jsx";
 import './Forecast.css'
 
 
@@ -15,20 +14,24 @@ const Forecast = () => {
     const [city, setCity] = useState("Kolkata,IN")
     // console.log(city)
     const [currentWeather, setCurrentWeather] = useState(null);
+    const [forecastWeather, setForecastWeather] = useState(null);
     const [loading, setLoading] = useState(true)
 
-    const fetchWeatherData = async () => {
-        setLoading(true)
-        const weatherData = await Fetch(city, "currentWeather");
-        setLoading(false)
-        if (weatherData) {
-            setCurrentWeather(weatherData);
-        }
-    };
     
     useEffect(() => {
+        const fetchWeatherData = async () => {
+            setLoading(true)
+            let weatherData = await Fetch(city, "currentWeather");
+            setLoading(false)
+            if (weatherData) {
+                setCurrentWeather(weatherData);
+            }
+            weatherData = await Fetch(city, 'forecast', 40);
+            if (weatherData) {
+                setForecastWeather(weatherData);
+            }
+        };
         fetchWeatherData();
-        console.log(currentWeather);
     }, [city]);
 
     /* Use any one way as per given data */
@@ -45,18 +48,15 @@ const Forecast = () => {
                 loading={loading}
                 />
             <TodaysHighlights
-                city={city}
                 currentWeather={currentWeather}
                 loading={loading}
             />
-            <Block
-                currentWeather={currentWeather}
-                loading={loading}
-             />
-            <HourlyWeather 
-                city={city}
+            <HourlyWeather
+                data={forecastWeather}
             />
-            <DailyWeather/>
+            <DailyWeather
+                data={forecastWeather}
+            />
 
         </div>
     );

@@ -4,7 +4,8 @@
     gap: 5rem;
     text-decoration: none;
     justify-content: center;
-    background: linear-gradient(to right, #00bfffd4, #bb33d3b0, #5656c3fa, #986a6a);
+    background: linear-gradient(to right, #00bfff86, #986a6af4, #5656c3e7, #bb33d385);
+    /* background-color: black; */
     padding: 3rem;
 }
 
