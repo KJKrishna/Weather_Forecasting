@@ -16,7 +16,7 @@ const fetchData = async (url) => {
     }
 }
 
-const Fetch = async (city, query = undefined, lat = undefined, lon = undefined, cnt = 5) => { 
+const Fetch = async (city, query = undefined, lat = undefined, lon = undefined, cnt = 40) => { 
 
     const geo = async () => {
         let search = `http://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=1&appid=${key}`;

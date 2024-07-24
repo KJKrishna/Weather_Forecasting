@@ -4,23 +4,29 @@
     justify-content: center;
     gap: 2rem;
     flex-wrap: wrap;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 10px #b0e1ffc2;
     padding-bottom: 3rem;
 }
 
 .weather{
-    border: 2px solid #4cafa2;
+    border: 3px solid #197468;
     padding: 10px;
     margin: 5px;
-    width: 150px;
+    width: 175px;
     border-radius: 10px;
-    background-color: #b0e1ffc2;
+    background-color: whitesmoke;
     color: black;
     font-family: 'Times New Roman', Times, serif;
     font-weight: bold;
     font-size: larger;
     
 }
+
+.weather:hover {
+    transform: translateY(5px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
+
 
 p{
     text-align: center;
