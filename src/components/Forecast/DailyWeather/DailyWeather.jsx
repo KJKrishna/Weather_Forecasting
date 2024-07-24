@@ -52,7 +52,7 @@ const DailyWeather = () => {
       <h3 style={{ textAlign: 'center', margin: '2rem', color: '#4cafa2' }}>Daily weather updates</h3>
       <div className='box'>
       {weatherData.length > 0 && indicesToShow.map((index) => {
-          const day = weatherData[index];
+          const dailyData = weatherData[index];
           const dayOfWeek = days[(dayNumber + (index / 8)) % 7];
           displayDate.setDate(date.getDate() + (index / 8));
           const formattedDate = displayDate.toDateString().replace(displayDate.getFullYear(), '');
@@ -62,9 +62,9 @@ const DailyWeather = () => {
               <p style={{ color: 'tomato' }}> {formattedDate}</p>
               <hr></hr>
               <p id='days' style={{ color: '#197468' }}> {dayOfWeek}</p>
-              <p>{day.main.feels_like.toFixed(0)}°C / {day.main.temp.toFixed(0)}°C</p>
-              <p>Weather: {iconToEmoji[day.weather[0].icon]}</p>
-              <p>Humidity🍃: {day.main.humidity}%</p>
+              <p>{dailyData.main.feels_like.toFixed(0)}°C / {dailyData.main.temp.toFixed(0)}°C</p>
+              <p>Weather: {iconToEmoji[dailyData.weather[0].icon]}</p>
+              <p>Humidity🍃: {dailyData.main.humidity}%</p>
             </div>
           );
         })}
