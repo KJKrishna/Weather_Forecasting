@@ -17,7 +17,6 @@ const Searchbar = (props) => {
           let result = data.filter((user) => {
             return value && user && user.name && user.name.toLowerCase().includes(value.toLowerCase());
           });
-          console.log(result);
           setResults(result);
         })
     }
@@ -48,7 +47,9 @@ const Searchbar = (props) => {
 
           <input placeholder='Search city...'
             value={input}
-            onChange={(e) => handleChange(e.target.value)} />
+            onChange={(e) => handleChange(e.target.value)} 
+            style={{border:'none'}}
+          />
           <FaSearch id='search-icon' />
           <MdGpsFixed id='location-symbol' onClick={handleLocationClick} />
         </div>
@@ -58,7 +59,7 @@ const Searchbar = (props) => {
         {
           results.map((result, id) => {
             return (
-              <div className='result-list-box' onClick={
+              <div key={id} className='result-list-box' onClick={
                 () => {
                   props.setCity(result.name + ',' + result.country);
                   setInput('')

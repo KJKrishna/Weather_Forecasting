@@ -6,8 +6,8 @@ function Card(props) {
   // console.log(props);
   return (
     <div className="highlightsCard">
-      <p className="element">{props.element}</p>
-      <h3 className='measurement'>{props.measurement}<sub>{props.unit}</sub></h3>
+      <p className="element" style={{color: '#ffeb3b', fontWeight:'500', fontSize: '130%'}}>{props.element}</p>
+      <h3 className='measurement' style={{color:'white'}}>{props.measurement}</h3>
       <p>{props.children}</p>
     </div>
   );

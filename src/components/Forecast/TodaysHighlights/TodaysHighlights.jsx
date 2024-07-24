@@ -1,21 +1,33 @@
-
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Card from './Card';
 
-function TodaysHighlights() {
+function TodaysHighlights({ city, loading, currentWeather }) {
+  const [data, setData] = useState(null);
+
+  useEffect(()=>{
+    if (currentWeather) {
+          setData({
+            windSpeed: currentWeather.wind.speed,
+            uvIndex: currentWeather.main.uvi || 'N/A',
+            sunrise: new Date(currentWeather.sys.sunrise * 1000).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
+            sunset: new Date(currentWeather.sys.sunset * 1000).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
+          });
+    }
+  },[city, currentWeather])
+
   return (
-    <div className='TodaysHighlights'>
-      <h3 style={{textAlign:'center', margin:'2rem', color:'#3de7ba'}}>Today's Highlights</h3>
-    <div className="cards">
-      <Card element='Wind speed' unit='m/s' measurement='5.3'></Card>
-      <Card element='UV Index' unit='UV' measurement='1'></Card>
-      {/* <div className="SunriseSunset">
-      <div style={{display:'inline-block'}}><p>Sunrise & Sunset</p><p>sunrise: 6:30AM</p></div>
-      <div style={{display:'inline-block',paddingLeft:'10px'}}><p>sunset: 7:02PM</p></div>
-    </div> */}
-      <Card element='Sunrize' unit='am' measurement='6:09'></Card>
-      <Card element='Sunset' unit='pm' measurement='7:00'></Card>
-    </div>
+    <div>
+      <div className='TodaysHighlights'>
+        <h3 style={{ textAlign: 'center', color: 'rgb(144 193 255)', marginBottom: '3rem' }}>Today's Highlights</h3>
+        {
+          <div className="cards">
+            <Card element='Wind speed' unit='m/s' measurement={data ? data.windSpeed + ' m/s' : loading && 'Loading...'}></Card>
+            <Card element='UV Index' unit='UV' measurement={data ? data.uvIndex : loading && 'Loading...'}></Card>
+            <Card element='Sunrise' unit='am' measurement={data ? data.sunrise : loading && 'Loading...'}></Card>
+            <Card element='Sunset' unit='pm' measurement={data ? data.sunset : loading && 'Loading...'}></Card>
+          </div>
+        }
+      </div>
     </div>
   );
 }

@@ -3,8 +3,6 @@ import './DailyWeather.css';
 import Fetch from '../Fetch/Fetch.jsx';
 
 const DailyWeather = () => {
-
-  
   const [weatherData, setWeatherData] = useState([])
 
 

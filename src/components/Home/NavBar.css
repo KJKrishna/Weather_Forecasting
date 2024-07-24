@@ -1,0 +1,16 @@
+.navBar{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5rem;
+    text-decoration: none;
+    justify-content: center;
+    background: linear-gradient(to right, #00bfffd4, #bb33d3b0, #5656c3fa, #986a6a);
+    padding: 3rem;
+}
+
+@media screen and (max-width: 500px) {
+    .navBar{
+        gap: 2rem;
+        padding: 3rem 1rem;
+    }
+}

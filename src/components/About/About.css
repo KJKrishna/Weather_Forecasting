@@ -1,20 +1,24 @@
-html, body {
-  height: 100%;
-  margin: 0;
-}
-
 .About {
+  color: white;
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  /* background-color: rgb(53, 52, 52); */
+  background: linear-gradient(to top, #6e634d,  #6d2979b0, #4c4caefa, #6c4848);
 }
 
 .Footer {
   background: #000;
-  padding: 2rem 0;
-  margin-top: auto; 
-  margin-bottom: -10px;
+  padding: 3rem 0rem;
   justify-content: center;
+  align-items: center;
+}
+
+.footer-data{
+  display: flex;
+  gap: 15rem;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
 .row {
@@ -23,11 +27,11 @@ html, body {
   justify-content: space-around;
 }
 
-.ft-1 h3 {
+.locn h3 {
   font-weight: 700;
   font-family: sans-serif;
   letter-spacing: 2px;
-  padding: 0.5rem 0;
+  /* padding: 0.5rem 0; */
   color: #fff;
 }
 
@@ -130,4 +134,19 @@ html, body {
   text-overflow: ellipsis;
 }
 
+@media screen and (max-width: 1150px) {
+  .footer-data{
+    gap: 10rem;
+  }
+}
+@media screen and (max-width: 1050px) {
+  .footer-data{
+    gap: 5rem;
+  }
+}
 
+@media screen and (max-width: 850px) {
+  .footer-data{
+    gap: 3rem;
+  }
+}
