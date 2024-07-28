@@ -13,12 +13,12 @@ const teamMembers = [
     mail: '112201024@smail.iitpkd.ac.in'
   },
   {
-    name: 'Team Member 2',
+    name: 'Swadha Swaroop',
     pos: 'Member',
-    img: require('./assets/team-member-2.jpg'),
-    github: 'https://github.com',
-    linkedIn: 'https://linkedin.com',
-    mail: 'yacc@iitpkd.ac.in' 
+    img: require('./assets/swadha_swaroop.jpg'),
+    github: 'https://github.com/Rocky0204',
+    linkedIn: 'https://www.linkedin.com/in/swadha-swaroop-152377253',
+    mail: '112201009@smail.iitpkd.ac.in' 
   },
   {
     name: 'Team Member 3',
