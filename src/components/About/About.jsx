@@ -21,6 +21,22 @@ const teamMembers = [
     mail: '112201009@smail.iitpkd.ac.in' 
   },
   {
+    name: 'Pushti Vasoya',
+    pos: 'Member',
+    img: require('./assets/Pushti_Vasoya.jpg'),
+    github: 'https://github.com/PushtiVasoya',
+    linkedIn: 'https://www.linkedin.com/in/pushti-vasoya-05777a252/',
+    mail: '112201005@smail.iitpkd.ac.in' 
+  },
+  {
+    name: 'Arjun K',
+    pos: 'Member',
+    img: require('./assets/arjun.jpg'),
+    github: 'https://github.com/ArjunK-2809',
+    linkedIn: 'https://www.linkedin.com/in/arjun-k-a003011b4/',
+    mail: '122301004@smail.iitpkd.ac.in' 
+  },
+  {
     name: 'Team Member 3',
     pos: 'Member',
     img: require('./assets/team-member-3.jpg'),
